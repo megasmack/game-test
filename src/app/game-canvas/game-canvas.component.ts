@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
-import { canvasConst, spriteConst, preloadingConst } from './game-canvas.config';
+import { canvasConst, preloadingConst, spriteConst } from './game-canvas.config';
 
 @Component({
-  selector: 'app-game-canvas',
+  selector: 'gt-game-canvas',
   templateUrl: './game-canvas.component.html',
   styleUrls: ['./game-canvas.component.scss']
 })

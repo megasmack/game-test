@@ -10,29 +10,39 @@ import { Direction } from '../sprite/sprite.config';
 })
 export class PlayerComponent implements OnInit {
   @ViewChild(SpriteComponent) sprite: SpriteComponent;
+  gameLoop: any;
 
   @HostListener('document:keydown', ['$event'])
     onKeydownHandler(event: KeyboardEvent) {
       const keyPressed = String.fromCharCode(event.keyCode);
       if (keyPressed === 'W') {
         this.sprite.facing = 'n';
-        // isMoving = true;
+        this.sprite.isMoving = true;
       } else if (keyPressed === 'D') {
         this.sprite.facing = 'e';
-        // isMoving = true;
+        this.sprite.isMoving = true;
       } else if (keyPressed === 'S') {
         this.sprite.facing = 's';
-        // isMoving = true;
+        this.sprite.isMoving = true;
       } else if (keyPressed === 'A') {
         this.sprite.facing = 'w';
-        // isMoving = true;
+        this.sprite.isMoving = true;
       }
       this.sprite.facingChange.emit(this.sprite.facing);
     }
 
+    @HostListener('document:keyup', ['$event'])
+      onKeyupHandler(event: KeyboardEvent) {
+        const keyPressed = String.fromCharCode(event.keyCode);
+        if ((keyPressed === 'W') || (keyPressed === 'A') ||
+        (keyPressed === 'S') || (keyPressed === 'D')) {
+          this.sprite.isMoving = false;
+        }
+      }
+
   constructor() { }
 
   ngOnInit() {
+    this.gameLoop = setInterval(this.sprite.updateSprite, this.sprite.timePerFrame);
   }
-
 }

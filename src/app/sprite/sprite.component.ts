@@ -12,18 +12,18 @@ import { Direction } from './sprite.config';
 })
 export class SpriteComponent implements AfterViewInit, OnDestroy {
   // Constants
-  path = '../assets/spritesheet2.png';
-  width = 72;
-  height = 96;
-  startX = 200;
-  startY = 200;
-  speed = 5;
-  spriteX = 0;
-  spriteNorthY = 0;
-  spriteEastY = 96;
-  spriteSouthY = 192;
-  spriteWestY = 288;
-  spriteWidth = 216;
+  readonly path = '../assets/spritesheet2.png';
+  readonly width = 72;
+  readonly height = 96;
+  readonly startX = 200;
+  readonly startY = 200;
+  readonly speed = 5;
+  readonly spriteX = 0;
+  readonly spriteNorthY = 0;
+  readonly spriteEastY = 96;
+  readonly spriteSouthY = 192;
+  readonly spriteWestY = 288;
+  readonly spriteWidth = 216;
 
   // Vars
   ready = false;

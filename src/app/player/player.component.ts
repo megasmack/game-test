@@ -10,7 +10,7 @@ import { Direction } from '../sprite/sprite.config';
 })
 export class PlayerComponent implements OnInit, OnDestroy {
   @ViewChild(SpriteComponent) sprite: SpriteComponent;
-  gameLoop: any;
+  gameLoop: number;
 
   @HostListener('document:keydown', ['$event'])
     onKeydownHandler(event: KeyboardEvent) {
@@ -43,7 +43,7 @@ export class PlayerComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    this.gameLoop = setInterval(this.sprite.updateSprite, this.sprite.timePerFrame);
+    this.gameLoop = window.setInterval(this.sprite.updateSprite, this.sprite.timePerFrame);
   }
 
   ngOnDestroy() {

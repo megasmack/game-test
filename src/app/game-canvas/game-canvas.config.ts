@@ -1,11 +1,11 @@
-export const canvasConst = {
+export const CANVAS_CONST = {
   width: 600,
   height: 400,
   timePreFrame: 120,
   font: 'bold 20px sans-serif'
 };
 
-export const spriteConst = {
+export const SPRITE_CONST = {
   path: '..assets/spritesheet2.png',
   width: 72,
   height: 96,
@@ -20,7 +20,7 @@ export const spriteConst = {
   spriteWidth: 216
 };
 
-export const preloadingConst = {
+export const PRELOADING_CONST = {
   text: 'Loading ...',
   textX: 200,
   textY: 200

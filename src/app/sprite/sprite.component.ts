@@ -71,7 +71,7 @@ export class SpriteComponent implements AfterViewInit, OnDestroy {
     this.subscribeFacing();
   }
 
-  setFacing(facing) {
+  setFacing(facing: Direction) {
     let y;
     if (facing === 'n') {
       y = this.spriteNorthY;

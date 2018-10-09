@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 
 import { canvasConst, preloadingConst, spriteConst } from './game-canvas.config';
 
@@ -7,7 +7,7 @@ import { canvasConst, preloadingConst, spriteConst } from './game-canvas.config'
   templateUrl: './game-canvas.component.html',
   styleUrls: ['./game-canvas.component.scss']
 })
-export class GameCanvasComponent implements OnInit {
+export class GameCanvasComponent implements OnInit, OnDestroy {
   ready = false;
   gameloop;
   facing;
@@ -23,6 +23,10 @@ export class GameCanvasComponent implements OnInit {
 
   ngOnInit() {
     this.setUpCanvas();
+  }
+
+  ngOnDestroy() {
+    window.clearInterval(this.preLoader);
   }
 
   setUpCanvas() {
@@ -48,7 +52,7 @@ export class GameCanvasComponent implements OnInit {
 
   preloading() {
     if (this.ready) {
-    clearInterval(this.preLoader);
+      window.clearInterval(this.preLoader);
 
     // Initialize game
     this.facing = 'E'; // N = North, E = East, S = South, W = West

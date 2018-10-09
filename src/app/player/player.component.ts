@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { SpriteComponent } from '../sprite/sprite.component';
 import { Direction } from '../sprite/sprite.config';
@@ -8,7 +8,7 @@ import { Direction } from '../sprite/sprite.config';
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements OnInit, OnDestroy {
   @ViewChild(SpriteComponent) sprite: SpriteComponent;
   gameLoop: any;
 
@@ -44,5 +44,9 @@ export class PlayerComponent implements OnInit {
 
   ngOnInit() {
     this.gameLoop = setInterval(this.sprite.updateSprite, this.sprite.timePerFrame);
+  }
+
+  ngOnDestroy() {
+    window.clearInterval(this.gameLoop);
   }
 }

@@ -14,17 +14,17 @@ export class PlayerComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keydown', ['$event'])
     onKeydownHandler(event: KeyboardEvent) {
-      const keyPressed = String.fromCharCode(event.keyCode);
-      if (keyPressed === 'W') {
+      const keyPressed = event.key;
+      if (keyPressed === 'w') {
         this.sprite.facing = 'n';
         this.sprite.isMoving = true;
-      } else if (keyPressed === 'D') {
+      } else if (keyPressed === 'd') {
         this.sprite.facing = 'e';
         this.sprite.isMoving = true;
-      } else if (keyPressed === 'S') {
+      } else if (keyPressed === 's') {
         this.sprite.facing = 's';
         this.sprite.isMoving = true;
-      } else if (keyPressed === 'A') {
+      } else if (keyPressed === 'a') {
         this.sprite.facing = 'w';
         this.sprite.isMoving = true;
       }

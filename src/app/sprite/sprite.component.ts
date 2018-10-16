@@ -68,7 +68,7 @@ export class SpriteComponent implements AfterViewInit, OnDestroy {
     this.spriteEl.style.backgroundImage = `url(${this.path})`;
     // this.spriteEl.style.backgroundPositionX = `${this.spriteX}px`;
     // this.spriteEl.style.backgroundPositionY = `${this.setFacing(this.facing)}px`;
-    this.subscribeFacing();
+    // this.subscribeFacing();
   }
 
   setFacing(facing: Direction) {
@@ -85,12 +85,12 @@ export class SpriteComponent implements AfterViewInit, OnDestroy {
     return -y;
   }
 
-  subscribeFacing() {
-    this.facing$ = this.facingChange.subscribe((facing) => {
-      const facingPx = this.setFacing(facing);
-      this.spriteEl.style.backgroundPositionY = `${facingPx}px`;
-    });
-  }
+  // subscribeFacing() {
+  //   this.facing$ = this.facingChange.subscribe((facing) => {
+  //     const facingPx = this.setFacing(facing);
+  //     this.spriteEl.style.backgroundPositionY = `${facingPx}px`;
+  //   });
+  // }
 
   updateSprite() {
     if (this.isMoving) {
@@ -110,7 +110,7 @@ export class SpriteComponent implements AfterViewInit, OnDestroy {
 
       this.currX += this.width;
 
-      if (this.currX >= this.width) {
+      if (this.currX >= this.spriteWidth) {
         this.currX = 0;
       }
 

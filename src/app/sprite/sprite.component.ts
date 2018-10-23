@@ -12,7 +12,7 @@ import { Direction } from './sprite.config';
 })
 export class SpriteComponent implements AfterViewInit, OnDestroy {
   // Constants
-  readonly path = '../assets/spritesheet2.png';
+  readonly path = '../assets/spritesheet2.png'; // http://charas-project.net
   readonly width = 72;
   readonly height = 96;
   readonly startX = 200;

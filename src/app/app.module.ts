@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { SpriteComponent } from './sprite/sprite.component';
 import { StageComponent } from './stage/stage.component';
 import { PlayerComponent } from './player/player.component';
+import { NpcComponent } from './npc/npc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StageComponent,
     SpriteComponent,
-    PlayerComponent
+    PlayerComponent,
+    NpcComponent
   ],
   imports: [
     BrowserModule,
